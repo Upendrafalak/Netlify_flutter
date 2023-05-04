@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/json/home_json.dart';
-import 'package:netflix_clone/pages/home_page.dart';
 import 'package:netflix_clone/pages/movies.dart';
 import 'package:netflix_clone/pages/video_detail_page.dart';
 import 'package:netflix_clone/pages/tv_shows.dart';
@@ -27,7 +26,6 @@ class _MoviesPageState extends State<MoviesPage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     return SafeArea(
-      bottom:size.isFinite,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: LayoutBuilder(builder: (BuildContext, BoxConstraints) {
@@ -62,7 +60,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                     ],
                                         end: Alignment.topCenter,
                                         begin: Alignment.bottomCenter))),
-                            Container(
+                            SizedBox(
                               height: 500,
                               width: size.width,
                               child: Column(
@@ -77,7 +75,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                     height: 15,
                                   ),
                                   const Text(
-                                    "Excting - Sci-Fi Drama - Sci-Fi Adventure",
+                                    "Exciting - Sci-Fi Drama - Sci-Fi Adventure",
                                     style: TextStyle(
                                       fontSize: 11,
                                       color: Colors.white,
@@ -117,9 +115,11 @@ class _MoviesPageState extends State<MoviesPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
+                                        builder: (_) => VideoDetailPage(
                                               videoUrl:
-                                                  "assets/videos/video_1.mp4",
+                                                  "assets/videos/video_10.mp4",
+                                                  title: " ",
+                                                  desc: " "
                                             )));
                               },
                               child: Container(
@@ -193,16 +193,16 @@ class _MoviesPageState extends State<MoviesPage> {
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const VideoDetailPage(
-                                                videoUrl:
-                                                    "assets/videos/video_1.mp4",
-                                              )));
-                                },
+                              // child: GestureDetector(
+                              //   onTap: () {
+                              //     Navigator.push(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //             builder: (_) => const VideoDetailPage(
+                              //                   videoUrl:
+                              //                       "assets/videos/video_1.mp4",
+                              //                 )));
+                              //   },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Row(
@@ -219,11 +219,22 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 image: AssetImage(
                                                     animeList[index]['img']),
                                                 fit: BoxFit.cover)),
+                                                 child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: animeList[index]['url'] ?? " ",
+                                                                title :animeList[index]['title']?? " ",
+                                                                desc :animeList[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                       );
                                     }),
                                   ),
                                 ),
-                              ),
+                              //),
                             ),
                             const SizedBox(
                               height: 30,
@@ -244,15 +255,15 @@ class _MoviesPageState extends State<MoviesPage> {
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const VideoDetailPage(
-                                              videoUrl:
-                                                  "assets/videos/video_2.mp4")));
-                                },
+                              // child: GestureDetector(
+                              //   onTap: () {
+                              //     Navigator.push(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //             builder: (_) => const VideoDetailPage(
+                              //                 videoUrl:
+                              //                     "assets/videos/video_2.mp4")));
+                              //   },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Row(
@@ -269,11 +280,22 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 image: AssetImage(
                                                     originalList[index]['img']),
                                                 fit: BoxFit.cover)),
+                                                 child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: originalList[index]['url'] ?? " ",
+                                                                title :originalList[index]['title']?? " ",
+                                                                desc :originalList[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                       );
                                     }),
                                   ),
                                 ),
-                              ),
+                             // ),
                             ),
                             const SizedBox(
                               height: 30,
@@ -293,15 +315,15 @@ class _MoviesPageState extends State<MoviesPage> {
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const VideoDetailPage(
-                                              videoUrl:
-                                                  "assets/videos/video_1.mp4")));
-                                },
+                              // child: GestureDetector(
+                              //   onTap: () {
+                              //     Navigator.push(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //             builder: (_) => const VideoDetailPage(
+                              //                 videoUrl:
+                              //                     "assets/videos/video_1.mp4")));
+                              //   },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Row(
@@ -318,11 +340,22 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 image: AssetImage(
                                                     popularList[index]['img']),
                                                 fit: BoxFit.cover)),
+                                                 child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: popularList[index]['url'] ?? " ",
+                                                                title :popularList[index]['title']?? " ",
+                                                                desc :popularList[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                       );
                                     }),
                                   ),
                                 ),
-                              ),
+                             // ),
                             ),
                             const SizedBox(
                               height: 30,
@@ -342,15 +375,15 @@ class _MoviesPageState extends State<MoviesPage> {
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const VideoDetailPage(
-                                              videoUrl:
-                                                  "assets/videos/video_1.mp4")));
-                                },
+                              // child: GestureDetector(
+                              //   onTap: () {
+                              //     Navigator.push(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //             builder: (_) => const VideoDetailPage(
+                              //                 videoUrl:
+                              //                     "assets/videos/video_1.mp4")));
+                              //   },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Row(
@@ -367,11 +400,22 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 image: AssetImage(
                                                     mylist[index]['img']),
                                                 fit: BoxFit.cover)),
+                                                 child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: mylist[index]['url'] ?? " ",
+                                                                title :mylist[index]['title']?? " ",
+                                                                desc :mylist[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                       );
                                     }),
                                   ),
                                 ),
-                              ),
+                             // ),
                             ),
                             const SizedBox(
                               height: 30,
@@ -391,15 +435,15 @@ class _MoviesPageState extends State<MoviesPage> {
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const VideoDetailPage(
-                                              videoUrl:
-                                                  "assets/videos/video_1.mp4")));
-                                },
+                              // child: GestureDetector(
+                              //   onTap: () {
+                              //     Navigator.push(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //             builder: (_) => const VideoDetailPage(
+                              //                 videoUrl:
+                              //                     "assets/videos/video_1.mp4")));
+                              //   },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Row(
@@ -416,11 +460,22 @@ class _MoviesPageState extends State<MoviesPage> {
                                                 image: AssetImage(
                                                     trendingList[index]['img']),
                                                 fit: BoxFit.cover)),
+                                                 child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: trendingList[index]['url'] ?? " ",
+                                                                title :trendingList[index]['title']?? " ",
+                                                                desc :trendingList[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                       );
                                     }),
                                   ),
                                 ),
-                              ),
+                             // ),
                             ),
                           ],
                         )
@@ -557,3 +612,5 @@ class _MoviesPageState extends State<MoviesPage> {
     );
   }
 }
+
+

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/json/home_json.dart';
-import 'package:netflix_clone/pages/home_page.dart';
 import 'package:netflix_clone/pages/movies.dart';
 import 'package:netflix_clone/pages/video_detail_page.dart';
 import 'package:netflix_clone/pages/tv_shows.dart';
@@ -27,7 +26,6 @@ class _MainPageState extends State<MainPage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     return SafeArea(
-      bottom:size.isFinite,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: LayoutBuilder(
@@ -40,10 +38,7 @@ class _MainPageState extends State<MainPage> {
                     width: size.height - 80,
                     height:size.height,
                     child: ListView(
-                    // mainAxisSize: MainAxisSize.min,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Expanded(child: 
                       Stack(
                         children: [
                           Container(
@@ -78,7 +73,7 @@ class _MainPageState extends State<MainPage> {
                                   height: 15,
                                 ),
                                 const Text(
-                                  "Excting - Sci-Fi Drama - Sci-Fi Adventure",
+                                  "Exciting - Sci-Fi Drama - Sci-Fi Adventure",
                                   style: TextStyle(
                                     fontSize: 11,
                                     color: Colors.white,
@@ -118,8 +113,10 @@ class _MainPageState extends State<MainPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => const VideoDetailPage(
-                                        videoUrl: "assets/videos/video_1.mp4",
+                                      builder: (_) => VideoDetailPage(
+                                        videoUrl: "assets/videos/video_6.mp4",
+                                        title: " ",
+                                        desc: " "
                                       )));
                             },
                             child: Container(
@@ -190,15 +187,15 @@ class _MainPageState extends State<MainPage> {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
-                                          videoUrl: "assets/videos/video_1.mp4",
-                                        )));
-                              },
+                            // child: GestureDetector(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (_) => VideoDetailPage(
+                            //               videoUrl: "assets/videos/video_1.mp4",
+                            //             )));
+                            //   },
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
@@ -213,11 +210,22 @@ class _MainPageState extends State<MainPage> {
                                               image:
                                               AssetImage(originalList[index]['img']),
                                               fit: BoxFit.cover)),
+                                               child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>  VideoDetailPage(
+                                                              videoUrl: originalList[index]['url'] ?? " ",
+                                                              title :originalList[index]['title']?? " ",
+                                                              desc :originalList[index]['desc']?? " ",
+                                                            )));
+                                                  })
                                     );
                                   }),
                                 ),
                               ),
-                            ),
+                           // ),
                           ),
                           const SizedBox(
                             height: 30,
@@ -235,15 +243,15 @@ class _MainPageState extends State<MainPage> {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
-                                            videoUrl:
-                                            "assets/videos/video_2.mp4")));
-                              },
+                            // child: GestureDetector(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (_) => const VideoDetailPage(
+                            //                 videoUrl:
+                            //                 "assets/videos/video_2.mp4")));
+                            //   },
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
@@ -259,11 +267,22 @@ class _MainPageState extends State<MainPage> {
                                               image: AssetImage(
                                                   animeList[index]['img']),
                                               fit: BoxFit.cover)),
+                                               child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: animeList[index]['url'] ?? " ",
+                                                                title :animeList[index]['title']?? " ",
+                                                                desc :animeList[index]['desc']?? " ",
+                                                              )));             
+                                                    })
                                     );
                                   }),
                                 ),
                               ),
-                            ),
+                            //),
                           ),
                           const SizedBox(
                             height: 30,
@@ -281,15 +300,15 @@ class _MainPageState extends State<MainPage> {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
-                                            videoUrl:
-                                            "assets/videos/video_1.mp4")));
-                              },
+                            // child: GestureDetector(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (_) =>  VideoDetailPage(
+                            //                 videoUrl:
+                            //                 "assets/videos/video_1.mp4")));
+                            //   },
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
@@ -305,11 +324,22 @@ class _MainPageState extends State<MainPage> {
                                               image: AssetImage(
                                                   mylist[index]['img']),
                                               fit: BoxFit.cover)),
+                                               child: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (_) =>  VideoDetailPage(
+                                                                videoUrl: mylist[index]['url'] ?? " ",
+                                                                title :mylist[index]['title']?? " ",
+                                                                desc :mylist[index]['desc']?? " ",
+                                                              )));
+                                                    })
                                     );
                                   }),
                                 ),
                               ),
-                            ),
+                           // ),
                           ),
                           const SizedBox(
                             height: 30,
@@ -327,15 +357,15 @@ class _MainPageState extends State<MainPage> {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
-                                            videoUrl:
-                                            "assets/videos/video_1.mp4")));
-                              },
+                            // child: GestureDetector(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (_) => const VideoDetailPage(
+                            //                 videoUrl:
+                            //                 "assets/videos/video_1.mp4")));
+                            //   },
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
@@ -343,19 +373,30 @@ class _MainPageState extends State<MainPage> {
                                   List.generate(trendingList.length, (index) {
                                     return Container(
                                       margin: const EdgeInsets.only(right: 8),
-                                      width: 165,
-                                      height: 300,
+                                      width: 110,
+                                      height: 160,
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(6),
                                           image: DecorationImage(
                                               image: AssetImage(
                                                   trendingList[index]['img']),
                                               fit: BoxFit.cover)),
+                                               child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>  VideoDetailPage(
+                                                              videoUrl: trendingList[index]['url'] ?? " ",
+                                                              title :trendingList[index]['title']?? " ",
+                                                              desc :trendingList[index]['desc']?? " ",
+                                                            )));
+                                                  })
                                     );
                                   }),
                                 ),
                               ),
-                            ),
+                           // ),
                           ),
                           const SizedBox(
                             height: 30,
@@ -373,15 +414,15 @@ class _MainPageState extends State<MainPage> {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const VideoDetailPage(
-                                            videoUrl:
-                                            "assets/videos/video_1.mp4")));
-                              },
+                            // child: GestureDetector(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (_) => const VideoDetailPage(
+                            //                 videoUrl:
+                            //                 "assets/videos/video_1.mp4")));
+                            //   },
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
@@ -397,11 +438,22 @@ class _MainPageState extends State<MainPage> {
                                               image: AssetImage(
                                                   popularList[index]['img']),
                                               fit: BoxFit.cover)),
+                                               child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>  VideoDetailPage(
+                                                              videoUrl: popularList[index]['url'] ?? " ",
+                                                              title :popularList[index]['title']?? " ",
+                                                              desc :popularList[index]['desc']?? " ",
+                                                            )));
+                                                  })
                                     );
                                   }),
                                 ),
                               ),
-                            ),
+                            //),
                           ),
                         ],
                       )
@@ -412,8 +464,6 @@ class _MainPageState extends State<MainPage> {
                   height: 200,
                   width: size.width,
                     child: Column(
-                      // mainAxisSize: MainAxisSize.min,
-                      // padding: const EdgeInsets.all(8),
                       children: [
                         Row(
                           // mainAxisSize: MainAxisSize.min,

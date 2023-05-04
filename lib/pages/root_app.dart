@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/pages/home_page.dart';
+// import 'package:netflix_clone/pages/home_page.dart';
 import 'package:netflix_clone/json/root_app_json.dart';
 import 'package:netflix_clone/pages/main_page.dart';
 
@@ -12,14 +12,6 @@ class RootApp extends StatefulWidget {
 }
 
 class _RootAppState extends State<RootApp> {
-  // int activeTab=0;
-  // List items = [
-  //   {"icon": Icons.home, "text": "Home"},
-  //   {"icon": Icons.play_arrow, "text": "Games"},
-  //   {"icon": Icons.play_circle_outline_outlined, "text": "News"},
-  //   {"icon": Icons.tag_faces, "text": "Fast Laughs"},
-  //   {"icon": Icons.download, "text": "Downloads"}
-  // ];
 
   @override
   Widget build(BuildContext context) {
