@@ -13,7 +13,7 @@ This project is a starting point for a Flutter application.
 ![](assets/images/ss4.jpg)
 ![](assets/images/ss5.jpg)
 ![](assets/images/ss6.jpg) -->
-<div style="display:flex;flex-direction:row;justify-content: space-between">
+<div style="display:flex;flex-direction:column;justify-content: space-between">
 <img src="assets/images/ss1.jpg" alt="screen_01" height="300" />
 <img src="assets/images/ss2.jpg" alt="screen_02" height="300" />
 <img src="assets/images/ss3.jpg" alt="screen_03" height="300" />
