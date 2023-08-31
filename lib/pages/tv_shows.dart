@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/json/home_json.dart';
 import 'package:netflix_clone/pages/movies.dart';
 import 'package:netflix_clone/pages/video_detail_page.dart';
-import 'package:netflix_clone/pages/tv_shows.dart';
-import 'package:netflix_clone/pages/root_app.dart';
 import 'package:netflix_clone/pages/main_page.dart';
 
 
@@ -115,9 +113,10 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => VideoDetailPage(
-                                          videoUrl: "assets/videos/video_21.mp4",
+                                          videoUrl: "https://firebasestorage.googleapis.com/v0/b/netflix-clone-dbae7.appspot.com/o/video_21.mp4?alt=media&token=34779b42-68db-43b2-81fd-ebf886392d74",
                                           title: " ",
-                                          desc: " "
+                                          desc: " ",
+                                          img: " "
                                         )));
                               },
                               child: Container(
@@ -219,6 +218,7 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                                                 videoUrl: originalList[index]['url'] ?? " ",
                                                                 title :originalList[index]['title']?? " ",
                                                                 desc :originalList[index]['desc']?? " ",
+                                                                img :originalList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -276,6 +276,7 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                                                 videoUrl: animeList[index]['url'] ?? " ",
                                                                 title :animeList[index]['title']?? " ",
                                                                 desc :animeList[index]['desc']?? " ",
+                                                                img :animeList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -333,6 +334,7 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                                                           videoUrl: mylist[index]['url'] ?? " ",
                                                                           title :mylist[index]['title']?? " ",
                                                                           desc :mylist[index]['desc']?? " ",
+                                                                          img :mylist[index]['img'] ?? " "
                                                                         )));
                                                               })
                                       );
@@ -390,6 +392,7 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                                                       videoUrl: trendingList[index]['url'] ?? " ",
                                                                       title :trendingList[index]['title']?? " ",
                                                                       desc :trendingList[index]['desc']?? " ",
+                                                                      img :trendingList[index]['img'] ?? " "
                                                                     )));
                                                           })
                                       );
@@ -447,6 +450,7 @@ class _TvShowsPageState extends State<TvShowsPage> {
                                                                 videoUrl: popularList[index]['url'] ?? " ",
                                                                 title :popularList[index]['title']?? " ",
                                                                 desc :popularList[index]['desc']?? " ",
+                                                                img :popularList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );

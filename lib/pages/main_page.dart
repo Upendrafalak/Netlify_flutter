@@ -3,7 +3,7 @@ import 'package:netflix_clone/json/home_json.dart';
 import 'package:netflix_clone/pages/movies.dart';
 import 'package:netflix_clone/pages/video_detail_page.dart';
 import 'package:netflix_clone/pages/tv_shows.dart';
-import 'package:netflix_clone/pages/root_app.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -32,6 +32,7 @@ class _MainPageState extends State<MainPage> {
           builder: (BuildContext, BoxConstraints) {
           return SafeArea(
             child: SingleChildScrollView(
+
               child: Stack(
                 children: [
                   SizedBox(
@@ -114,9 +115,9 @@ class _MainPageState extends State<MainPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => VideoDetailPage(
-                                        videoUrl: "assets/videos/video_6.mp4",
+                                        videoUrl: "https://firebasestorage.googleapis.com/v0/b/netflix-clone-dbae7.appspot.com/o/Age_of_Samuria.mp4?alt=media&token=10c5b589-7326-4ae6-bba2-76fe6a2d04b5",
                                         title: " ",
-                                        desc: " "
+                                        desc: " ",img : ""
                                       )));
                             },
                             child: Container(
@@ -219,6 +220,7 @@ class _MainPageState extends State<MainPage> {
                                                               videoUrl: originalList[index]['url'] ?? " ",
                                                               title :originalList[index]['title']?? " ",
                                                               desc :originalList[index]['desc']?? " ",
+                                                              img :originalList[index]['img']?? " "
                                                             )));
                                                   })
                                     );
@@ -276,6 +278,7 @@ class _MainPageState extends State<MainPage> {
                                                                 videoUrl: animeList[index]['url'] ?? " ",
                                                                 title :animeList[index]['title']?? " ",
                                                                 desc :animeList[index]['desc']?? " ",
+                                                                img :animeList[index]['img']?? " "
                                                               )));             
                                                     })
                                     );
@@ -333,6 +336,7 @@ class _MainPageState extends State<MainPage> {
                                                                 videoUrl: mylist[index]['url'] ?? " ",
                                                                 title :mylist[index]['title']?? " ",
                                                                 desc :mylist[index]['desc']?? " ",
+                                                                img :mylist[index]['img']?? " "
                                                               )));
                                                     })
                                     );
@@ -390,6 +394,7 @@ class _MainPageState extends State<MainPage> {
                                                               videoUrl: trendingList[index]['url'] ?? " ",
                                                               title :trendingList[index]['title']?? " ",
                                                               desc :trendingList[index]['desc']?? " ",
+                                                              img :trendingList[index]['img']?? " "
                                                             )));
                                                   })
                                     );
@@ -447,6 +452,7 @@ class _MainPageState extends State<MainPage> {
                                                               videoUrl: popularList[index]['url'] ?? " ",
                                                               title :popularList[index]['title']?? " ",
                                                               desc :popularList[index]['desc']?? " ",
+                                                              img :popularList[index]['img']?? " "
                                                             )));
                                                   })
                                     );
@@ -463,114 +469,116 @@ class _MainPageState extends State<MainPage> {
                 SizedBox(
                   height: 200,
                   width: size.width,
-                    child: Column(
-                      children: [
-                        Row(
-                          // mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/images/logo.jpg",
-                                    width: 35,
-                                    fit: BoxFit.cover,
-                                  )
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                    icon: const Icon(
-                                      Icons.cast,
-                                      size: 28,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: () {}),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      Icons.search,
-                                      size: 28,
-                                      color: Colors.white,
-                                    )),
-                                IconButton(
-                                    icon: Image.asset(
-                                      "assets/images/netflix_profile.jpg",
+                      child: Column(
+                        
+                        children: [
+                          Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/logo.jpg",
+                                      width: 35,
                                       fit: BoxFit.cover,
-                                      width: 26,
-                                      height: 26,
-                                    ),
-                                    onPressed: () {}),
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 15,
-                          width: 15,
-                        ),
-                        Row(
-                          // mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            MaterialButton(
-                              child: const Text(
-                                "TV Shows",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
+                                    )
+                                  ],
+                                ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const TvShowsPage()));
-                              },
-                            ),
-                            MaterialButton(
-                              child: const Text(
-                                "Movies",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const MoviesPage()));
-                              },
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                Text(
-                                  "Categories",
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                      icon: const Icon(
+                                        Icons.cast,
+                                        size: 28,
+                                        color: Colors.white,
+                                      ),
+                                      onPressed: () {}),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.search,
+                                        size: 28,
+                                        color: Colors.white,
+                                      )),
+                                  IconButton(
+                                      icon: Image.asset(
+                                        "assets/images/netflix_profile.jpg",
+                                        fit: BoxFit.cover,
+                                        width: 26,
+                                        height: 26,
+                                      ),
+                                      onPressed: () {}),
+                                ],
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15,
+                            width: 15,
+                          ),
+                          Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              MaterialButton(
+                                child: const Text(
+                                  "TV Shows",
                                   style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white),
                                 ),
-                                SizedBox(
-                                  width: 3,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const TvShowsPage()));
+                                },
+                              ),
+                              MaterialButton(
+                                child: const Text(
+                                  "Movies",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
                                 ),
-                                Icon(Icons.keyboard_arrow_down,
-                                    color: Colors.white)
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const MoviesPage()));
+                                },
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Text(
+                                    "Categories",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Icon(Icons.keyboard_arrow_down,
+                                      color: Colors.white)
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    
                   ),
               ],
             ),

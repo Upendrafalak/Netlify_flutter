@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/json/video_detail_json.dart';
 import 'package:video_player/video_player.dart';
-import 'package:netflix_clone/json/home_json.dart';
 
-
+// ignore: must_be_immutable
 class VideoDetailPage extends StatefulWidget {
   String videoUrl;
   String title;
   String desc;
+  String img;
 
-  VideoDetailPage({Key? key, required this.videoUrl, required this.title, required this.desc}) : super(key: key);
+  VideoDetailPage(
+      {Key? key,
+      required this.videoUrl,
+      required this.img,
+      required this.title,
+      required this.desc})
+      : super(key: key);
   @override
   _VideoDetailPageState createState() => _VideoDetailPageState();
 }
@@ -84,6 +90,7 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
   }
 
   Widget getBody() {
+    String image = widget.img;
     var size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,
@@ -131,11 +138,11 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
+                          child: const Padding(
+                            padding: EdgeInsets.only(
                                 right: 13, left: 13, top: 8, bottom: 8),
                             child: Row(
-                              children: const [
+                              children: [
                                 Text(
                                   "Preview",
                                   style: TextStyle(
@@ -175,7 +182,7 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                         decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("assets/images/banner.jpg"),
-                                fit: BoxFit.cover)),
+                                 fit: BoxFit.cover)),
                       ),
                     ],
                   ),
@@ -386,7 +393,7 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                     ),
                     Text(
                       // "Considered a fool and unfit to lead, Nobunaga rises to power as the head of the Oda clan, spurring dissent among those in his family vying for control.",
-                     widget.desc,
+                      widget.desc,
                       style: TextStyle(
                           height: 1.4, color: Colors.white.withOpacity(0.9)),
                     ),

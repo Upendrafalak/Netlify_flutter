@@ -24,7 +24,9 @@ class _OnBoardingState extends State<OnBoarding> {
         await _auth.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text)
     ).user;
 
+  
     if(user != null) {
+      // ignore: use_build_context_synchronously
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const OnBoarding()),
@@ -36,6 +38,7 @@ class _OnBoardingState extends State<OnBoarding> {
     final User? user = (await _auth.signInWithEmailAndPassword(email: _emailController.text, password: _passwordController.text)).user;
 
     if(user != null) {
+      // ignore: use_build_context_synchronously
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const RootApp()),
@@ -297,7 +300,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    // final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
         backgroundColor: Colors.black,

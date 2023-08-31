@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 // import 'package:netflix_clone/pages/home_page.dart';
-import 'package:netflix_clone/json/root_app_json.dart';
 import 'package:netflix_clone/pages/main_page.dart';
 
 

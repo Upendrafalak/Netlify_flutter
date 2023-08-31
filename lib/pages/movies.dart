@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/json/home_json.dart';
-import 'package:netflix_clone/pages/movies.dart';
 import 'package:netflix_clone/pages/video_detail_page.dart';
 import 'package:netflix_clone/pages/tv_shows.dart';
-import 'package:netflix_clone/pages/root_app.dart';
 import 'package:netflix_clone/pages/main_page.dart';
 
 class MoviesPage extends StatefulWidget {
@@ -117,9 +115,10 @@ class _MoviesPageState extends State<MoviesPage> {
                                     MaterialPageRoute(
                                         builder: (_) => VideoDetailPage(
                                               videoUrl:
-                                                  "assets/videos/video_10.mp4",
+                                                  "https://firebasestorage.googleapis.com/v0/b/netflix-clone-dbae7.appspot.com/o/VINCENZO.mp4?alt=media&token=05ad98e0-1bdc-4a90-8d4c-1f89ba8a1a64",
                                                   title: " ",
-                                                  desc: " "
+                                                  desc: " ",
+                                                  img: " "
                                             )));
                               },
                               child: Container(
@@ -127,11 +126,11 @@ class _MoviesPageState extends State<MoviesPage> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(4),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
+                                child: const Padding(
+                                  padding: EdgeInsets.only(
                                       right: 13, left: 8, top: 2, bottom: 2),
                                   child: Row(
-                                    children: const [
+                                    children: [
                                       Icon(
                                         Icons.play_arrow,
                                         color: Colors.black,
@@ -152,8 +151,8 @@ class _MoviesPageState extends State<MoviesPage> {
                                 ),
                               ),
                             ),
-                            Column(
-                              children: const [
+                            const Column(
+                              children: [
                                 Icon(
                                   Icons.info_outline,
                                   color: Colors.white,
@@ -228,6 +227,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                                                 videoUrl: animeList[index]['url'] ?? " ",
                                                                 title :animeList[index]['title']?? " ",
                                                                 desc :animeList[index]['desc']?? " ",
+                                                                img :animeList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -289,6 +289,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                                                 videoUrl: originalList[index]['url'] ?? " ",
                                                                 title :originalList[index]['title']?? " ",
                                                                 desc :originalList[index]['desc']?? " ",
+                                                                img :originalList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -349,6 +350,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                                                 videoUrl: popularList[index]['url'] ?? " ",
                                                                 title :popularList[index]['title']?? " ",
                                                                 desc :popularList[index]['desc']?? " ",
+                                                                img :popularList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -409,6 +411,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                                                 videoUrl: mylist[index]['url'] ?? " ",
                                                                 title :mylist[index]['title']?? " ",
                                                                 desc :mylist[index]['desc']?? " ",
+                                                                img :mylist[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
@@ -469,6 +472,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                                                 videoUrl: trendingList[index]['url'] ?? " ",
                                                                 title :trendingList[index]['title']?? " ",
                                                                 desc :trendingList[index]['desc']?? " ",
+                                                                img :trendingList[index]['img'] ?? " "
                                                               )));
                                                     })
                                       );
